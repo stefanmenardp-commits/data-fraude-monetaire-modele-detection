@@ -39,7 +39,7 @@ Comment identifier automatiquement un billet authentique ou contrefait à partir
 
 Le jeu de données contient plusieurs caractéristiques associées à des billets :
 
-- variables numériques en millimètre liées aux dimensions (Longueur, Diagonale, Hauteur gauche, Hauteur droite, Marge supérieure, Marge inférieure)
+- variables numériques en millimètre liées aux dimensions physiques (Longueur, Diagonale, Hauteur gauche, Hauteur droite, Marge supérieure, Marge inférieure)
 - variable cible booléenne indiquant si le billet est authentique ou contrefait (True = Billet authentique, False = Billet contrefait)
 
 ---
@@ -60,7 +60,7 @@ Pour mieux comprendre vers laquelle direction se diriger et avant de faire quoi 
 
 ### 2. Nettoyage des données
 
-Lorsque l'analyse était terminé, les étapes de nettoyage peuvent commencer pour uniformiser l'état du jeu de données :
+Lorsque l'analyse était terminée, les étapes de nettoyage pouvaient commencer pour uniformiser l'état du jeu de données :
 
 - conversion des types de données
 - suppression ou correction des valeurs incohérentes (valeurs absurdes)
@@ -71,15 +71,14 @@ Lorsque l'analyse était terminé, les étapes de nettoyage peuvent commencer po
 
 ### 3. Imputation des valeurs manquantes
 
-Focus sur l'enrichissement du jeu de données concernant les valeurs manquantes. Mise en place d'une méthode d'imputation utilisant des méthodes statistiques, plusieurs existe 
 
-Plusieurs méthodes statistiques peuvent être utilisées pour compléter les données manquantes :
+Mise en place d'une méthode d'imputation utilisant des méthodes statistiques pour l'enrichissement du jeu de données concernant les valeurs manquantes. Plusieurs méthodes statistiques peuvent être utilisées pour compléter les données manquantes :
 
 - Régression linéaire simple
 - Régression linéaire multiple
 - Imputation selon des statistiques descriptives
 
-La régression linéaire multiple était celle qui était adéquate avec ces données. Le besoin était de prédire une variable en utilisant plusieurs variables en face.
+La régression linéaire multiple était celle qui était adéquate avec ces données. Le besoin était de prédire une variable en utilisant plusieurs variables.
 
 ### 4. Modélisation
 
@@ -91,18 +90,18 @@ Plusieurs modèles sont comparés à la suite du nettoyage du jeu de données, p
 - XGBoost (Boosting)
 - Combinaison des modèles Random Forest et XGBoost (Stacking)
 
-Un déroulement commun se reproduit pour chaque entrainement des modèles, il se présente en 5 grandes parties : 
+Un déroulement commun se reproduit pour chaque entrainement des modèles, il se présente en 6 grandes parties : 
 
 1. La préparation de données (variable cible et variable explicative)
-2. Division du jeu de données en deux segments (80/20, données d'entrainement et de test)
-3. Choix de normaliser les données ou garder la donnée brute pour l'entrainement et les tests (unité ou échelle différente entre variable)
+2. Division du jeu de données en deux segments (80/20, données d'entrainements et de tests)
+3. Choix de normaliser les données ou garder la donnée brute pour l'entrainement et les tests (la raison étant une différence potentielle et significative d'unité ou d'échelle entre les variables)
 4. Entrainement du modèle (80 % des données allouées)
 5. Evaluation de la prédiction du modèle après entrainement (sur les 20 % de données allouées pour les tests)
 6. Interprétation des résultats, avec différentes métriques
 
 ### 5. Évaluation et résultat
 
-Les performances des différents modèles sont comparées afin de sélectionner le meilleur modèle selon la capacité de prédiction, la précision des résultats, la robustesse et l'équilibre entre faux positifs et faux négatifs. Plusieurs métriques permettent d'évaluer ces différents critères, ils peuvent être différents selon les modèles, voici une liste de celles utilisés :
+Les performances des différents modèles sont comparées afin de sélectionner le meilleur modèle selon la capacité de prédiction, la précision des résultats, la robustesse et l'équilibre entre faux positifs et faux négatifs. Plusieurs métriques permettent d'évaluer ces différents critères, ils peuvent être différents selon les modèles, voici une liste de celles utilisées :
 
 - Accuracy
 - Precision
@@ -132,9 +131,11 @@ Les performances des différents modèles sont comparées afin de sélectionner 
 
 ## Compétences développées
 
+Ce projet m'a permis de développer et de mettre en œuvre mes compétences dans les domaines suivants.
+
 - nettoyage des données
 - enrichissement des données par modèle statistique
-- Préparation des données pour un modèle
-- Entraînement et comparaison de modèles
-- Évaluation des performances d’un modèle
-- Interprétation des résultats
+- préparation des données pour un modèle
+- entraînement et comparaison de modèles
+- évaluation des performances d’un modèle
+- interprétation des résultats
